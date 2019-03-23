@@ -44,6 +44,8 @@
 </head>
 
 <?php
+
+	session_start();
     require 'admin_forms.php';
     
 
@@ -63,33 +65,47 @@
 
       </div>
 
+
+   
 	 </header>
 
 	<main>
-		<div class="container form_row">
-        <h5 style="text-align:center">Admin Login</h5>
-        <div style="padding:10px" class="row z-depth-2">
-			<form name="main_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"    method="post" class="form-horizontal" enctype="multipart/form-data" id="signupForm2" >  
-				    <div class="row" style="padding:5px">
-					<label>Username : </label>	<input name="username" id="username" type="text" placeholder="username">
-                    </div>
-                    <div class="row" style="padding:5px">
+		<div class="row white" style="max-width: 300px;opacity: 0.9">
+		<div class="col s12">
+	        	<div style="padding:10px" class="row z-depth-2">
+	        	<h5 style="text-align:center;color: green">Admin Login</h5>
 
-					<label>Password : </label>	<input name="password" id="password" type="password" placeholder="password">
-					</div>
-                    
+				<form name="main_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"    method="post" class="form-horizontal" enctype="multipart/form-data" id="signupForm2" >  
+				<div class="row" style="padding: 10px;width: 250px;margin: auto;">
+				<label>Username : </label>	<input style="background-color: #fff" name="username" id="username" type="text" placeholder="username">
+                </div>
+                <div class="row" style="padding:10px;width: 250px;margin: auto;">
+
+				<label>Password : </label>	<input name="password" id="password" type="password" placeholder="password">
+				</div>
+                
                            
 
-        <button style="margin-bottom:20px;"  type="submit" value="submit">Submit</button>
-        </form>
-		
-        </div>
+		        <button class="waves-effect waves-light btn" style="position: relative;margin-left:90px;"  
+		        type="submit" value="submit">Submit</button>
+		        </form>
+				
+		        </div>
+		</div>
+     
     </div>
 	</main>
 
 
 
-  
+      <footer class="page-footer notprint  center" style="opacity: 0.95;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #e0f2f1;position:absolute;bottom:0;width: 100%;">
+
+    <div class="container">
+    <b style="color:black"><i>Copyright © 2019. IIIT-Delhi <br>
+     Developed and Designed by: Himanshu Sundriyal&nbsp;and Divyanshu Sundriyal &nbsp;&nbsp; &nbsp;Powered by: Web Admin, IIIT-D </i></b>
+    
+    </div>
+    </footer>    
 
 </body>
 </html>

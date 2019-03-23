@@ -52,13 +52,25 @@
 </head>
 
 <?php
+    session_start();
+    if(!isset($_SESSION["email"])){
+		  header("Location: index.php");
+
+	}
+    // echo $_SESSION['email'];
 	require 'welcome_forms.php';
+
 
    $handle = fopen("sample_student_data.csv", "r");
    
    $row = 1;
    $data_all = array();
    $emails = array();
+
+   // $given_email = "hsdev@iiitd";
+      $given_email = $_SESSION["email"];
+
+
 
    while (($data = fgetcsv($handle)) !== FALSE) {
         array_push($data_all,$data);
@@ -70,7 +82,6 @@
    fclose($handle);
 
    $len_data = sizeof($emails);
-   $given_email = "hsdev@iiitd";
    $index = 0;
    for ($x = 0; $x <= $len_data -1; $x++) {
 		if($emails[$x] == $given_email){
@@ -101,7 +112,14 @@
 	 </header>
 
 	<main>
-		<div class="container form_row">
+		<div class="row"  style="background-color: #eef2f1">
+			<div class="col s12 card center" style="background-color: white; opacity: 0.8;margin: auto;margin-bottom: 10px;">
+			<h6>CONFIDENTIALITY IS HIGHLY ENSURED *</h6>
+		</div>
+			
+		</div>
+		
+		<div class="container form_row" style="background-color: #eef2f1">
 			<div class="row z-depth-2">
 			<form name="main_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"    method="post" class="form-horizontal" enctype="multipart/form-data" id="signupForm2" >  
 				    <div class="row" style="padding:10px">
@@ -115,13 +133,20 @@
 						<input  name="name" id="name" type="text" class="validate" value="<?php echo $data_all[$index][2] ?>">
 						<label for="name">Name</label>
 						</div>
-						<div class="input-field col l4 m6 s12">
+						<div class="input-field col l4 m6 s12 hide">
 						<i class="material-icons prefix">cake</i>
 						<input  name="age" id="age" type="text" class="validate" value="<?php echo $data_all[$index][3] ?>">
 						<label for="age">Age</label>
 						</div>
+						<div class="input-field col l4 m6 s12">
+							<i class="material-icons prefix">mail</i>
+							<input  name="email" id="email" type="email" class="validate" value="<?php echo $data_all[$index][0] ?>">
+							<label for="email">IIIT-D Email ID</label>
+							<span class="helper-text" data-error="Wrong Email Format">
+
+						</div>
 					</div>
-					<div class="row">
+					<div class="row hide">
 						<div class="input-field col l4 m6 s12">
 						<i class="material-icons prefix">account_circle</i>
 						<input  name="gender" id="gender" type="text" class="validate" value="<?php echo $data_all[$index][4] ?>">
@@ -151,7 +176,7 @@
 						<label for="branch">Branch</label>
 						</div>
 					</div>
-					<div class="input-field col l4 m6 s12">
+					<div class="input-field col l4 m6 s12 hide">
 					<i class="material-icons prefix">flash_on</i>
 					<select name="sem">
 					  <option value="" disabled selected>Choose Current Semester</option>
@@ -167,30 +192,32 @@
 					</select>
 					<label>Current Semester</label>
 					</div>
-					<div class="input-field col l4 m6 s12">
-					<i class="material-icons prefix">mail</i>
-					<input  name="email" id="email" type="email" class="validate" value="<?php echo $data_all[$index][0] ?>">
-					<label for="email">IIIT-D Email ID</label>
-					<span class="helper-text" data-error="Wrong Email Format">Helper text
 
-					</div>
-					<div class="input-field col l4 m6 s12">
-					<i class="material-icons prefix">mail</i>
-					<input name="aemail" id="alt_email" type="email" class="validate" value="<?php echo $data_all[$index][8] ?>">
-					<label for="alt_email">Alternate Email ID</label>
-					<span class="helper-text" data-error="Wrong Email format">Helper text
-					</div>
 					<div class="input-field col l4 m6 s12">
 					<i class="material-icons prefix">phone</i>
 					<input name="contact" id="contact" type="text" class="validate" value="<?php echo $data_all[$index][9] ?>">
 					<label for="contact">Contact Number</label>
 					</div>
+					<!-- <div class="input-field col l4 m6 s12">
+					<i class="material-icons prefix">mail</i>
+					<input  name="email" id="email" type="email" class="validate" value="<?php echo $data_all[$index][0] ?>">
+					<label for="email">IIIT-D Email ID</label>
+					<span class="helper-text" data-error="Wrong Email Format">Helper text
+
+					</div> -->
+					<div class="input-field col l4 m6 s12">
+					<i class="material-icons prefix">mail</i>
+					<input name="aemail" id="alt_email" type="email" class="validate" value="<?php echo $data_all[$index][8] ?>">
+					<label for="alt_email">Alternate Email ID</label>
+					<span class="helper-text" data-error="Wrong Email format">
+					</div>
+				
 					<div class="input-field col l4 m6 s12">
 					<i class="material-icons prefix">phone</i>
 					<input name="acontact" id="alt_contact" type="text" class="validate" value="<?php echo $data_all[$index][10] ?>">
 					<label for="alt_contact">Alternate Contact Number</label>
 					</div>
-					<div class="input-field col l4 m6 s12">
+					<div class="input-field col l4 m6 s12 hide">
 					<i class="material-icons prefix">hotel</i>
 					<select name="accom">
 					  <option value="" disabled selected>Hosteller/Day Scholar</option>
@@ -205,7 +232,7 @@
 			<div class="row z-depth-4">
 				<div class="row">
 				<div class="input-field col s12 l3 m3" style="font-size:14px;">
-					<p><b><span>Have you ever been to a Psychiatrist</b><span>
+					<p><b><span>Have you ever been to a Psychiatrist/Psychologist</b><span>
 					<!--select class="dropdown-content" required onchange="change(this);">
 					  <option value="" disabled selected>Choose Option</option>
 					  <option value="Yes">Yes</option>
@@ -224,39 +251,93 @@
 					
 				</div>
 				<div class="col s12 l8 m8" id="whenandwhy">
-						<div class="input-field col s12 m8 l8">
+						<div class="input-field col s12 m7 l7">
 						<input name="past_when" id="when" type="text" class="validate" disabled>
 						<label for="when">When</label>
+						<div id="result4" style="font-size:14px;margin:0px;padding:4px"></div>
+
 						</div>
 
-						<div class="input-field col s12 m4 l4">
-						<input name="past_no_of_sess" id="noss" type="text" class="validate" disabled>
+						<div class="input-field col s12 m5 l5">
+						<input name="past_no_of_sess" id="noss" type="number" class="validate" disabled>
 						<label for="noss">Number Of Sessions</label>
 						</div>
 
 						<div class="input-field col s12">
 						<input name="past_why" id="why" type="text" class="validate" disabled>
 						<label for="why">Why</label>
+						<div id="result3" style="font-size:14px;margin:0px;padding:0px">
+
 						</div>
 
 				</div>
 				</div>
 				<div class="row">
                     <div class="input-field col l8 offset-l2 s12 ">
-					  <h5 class="center">Major Concerns To Be Discussed </h5>
-                      <textarea name="maj_concern" id="concerns" name="concerns" required  placeholder="Enter Main Concerns to be discussed" data-length="10" class="materialize-textarea"></textarea>
+                    <h5 class="center">Personal Concerns To Be Discussed </h5>
+
+                    <div class="input-field col s12 l6 m6" style="font-size:14px;">
+
+					<p><b><span>Want to enter Personal Concerns ?</b><span>
+					<!--select class="dropdown-content" required onchange="change(this);">
+					  <option value="" disabled selected>Choose Option</option>
+					  <option value="Yes">Yes</option>
+					  <option value="No">No</option>
+					</select></p>-->
+
+						<div class="switch" id="switcher_pc">
+						<label>
+						  No
+						  <input type="checkbox" name="switcher_pc">
+						  <span class="lever"></span>
+						  Yes
+						</label>
+					   </div>
+
+					
+					</div>
+                      <textarea name="maj_concern" id="concerns" name="concerns" required  placeholder="Enter Personal Concerns to be discussed" data-length="10" class="materialize-textarea" disabled></textarea>
 					  <div id="result1" style="font-size:14px;margin:0px;padding:0px">
 					  Words: 0 &nbsp; &nbsp;Words Left: 100
 					  </div>   
-                        </div>
+                      </div>
+                 </div>
+                 <div class="row">
+                    <div class="input-field col l8 offset-l2 s12 ">
+
+					  <h5 class="center">Academic Concerns To Be Discussed </h5>
+					 <div class="input-field col s12 l6 m6" style="font-size:14px;">
+					<p><b><span>Want to enter Academic Concerns ?</b><span>
+					<!--select class="dropdown-content" required onchange="change(this);">
+					  <option value="" disabled selected>Choose Option</option>
+					  <option value="Yes">Yes</option>
+					  <option value="No">No</option>
+					</select></p>-->
+
+						<div class="switch" id="switcher_ac">
+						<label>
+						  No
+						  <input type="checkbox" name="switcher_ac">
+						  <span class="lever"></span>
+						  Yes
+						</label>
+					   </div>
+
+					
+					</div>
+                      <textarea name="maj_concern2" id="maj_concern2" name="maj_concern2" required  placeholder="Enter Academic Concerns to be discussed" data-length="10" class="materialize-textarea" disabled></textarea>
+					  <div id="result2" style="font-size:14px;margin:0px;padding:0px">
+					  Words: 0 &nbsp; &nbsp;Words Left: 100
+					  </div>   
+                      </div>
                  </div>
 
 				 <div>
 				 <div class="row" style="padding:10px;">
-				 	<h5 class="center">Availability of Team Members</h5>
+				 	<h5 class="center">Well Being Cell Team</h5>
 
 					<div class="col s12 m4 l4 center card" style=" padding-bottom: 8px;">
-						<img src="images/khuspinder.jpg" style="margin:10px;">
+						<img src="images/khuspinder.jpg" style="margin:10px;" width="100px" height="120px;">
 						<p><b>Khushpinder P. Sharma<br>Counselling Psychologist<br><br></b></p>
 						<p><b>Availability:</b>Monday to Friday<br><br>
 						   <b>Room No:</b> A-206, Academic block<br>
@@ -265,8 +346,8 @@
 						   
 						</p>
 						
-					  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">More Details</a>
-
+<!-- 					  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">More Details</a>
+ -->
 					  <div id="modal1" class="modal">
 						<div class="modal-content">
 						  <h5>Khushpinder P. Sharma</h5><h6>Counselling Psychologist</h6>
@@ -279,13 +360,13 @@
 						  Administration and as the Superintendent at CCWCD, Chandigarh, have been no less than exceptional.</p>
 						</div>
 					  </div>
-					  <br><br>
-						<a class="waves-effect waves-light btn c_class" id="co1"><i class="material-icons left">person</i>Select Councelor</a>
+					  <br>
+						<a class="waves-effect waves-light btn c_class" id="co1"><i class="material-icons left">person</i>Select</a>
 
 					
 					</div>
 					<div class="col s12 m4 l4 center card" style=" padding-bottom: 8px;">
-						<img src="images/drakshay.jpg" style="margin:10px;">
+						<img src="images/drakshay.jpg" style="margin:10px;" width="100px" height="120px;">
 						<p><b>Akshay Kumar <br>Visiting Counselor<br>PhD, University of Delhi</b></p>
 						<p><b>Availability:</b>Monday and Wednesday<br>
 						   <b>Timings:</b>2.30 pm to 4.00 pm<br>
@@ -295,8 +376,8 @@
 						   
 						</p>
 
-						 <a class="waves-effect waves-light btn modal-trigger" href="#modal2">More Details</a>
-
+<!-- 						 <a class="waves-effect waves-light btn modal-trigger" href="#modal2">More Details</a>
+ -->
 					  <div id="modal2" class="modal">
 						<div class="modal-content">
 						 <h5>Akshay Kumar</h5><h6>Visiting Counselor;PhD, University of Delhi</h6>
@@ -305,15 +386,14 @@
 						  Hospital and Artemis Hospital.<br><br>Franchise owner of "Men are from Mars Women are from Venus" Asia pacific region.</p>
 						</div>
 					  </div>
-					  <br><br>
 
-						<a class="waves-effect waves-light btn c_class" id="co2"><i class="material-icons left">person</i>Select Councelor</a>
+						<a class="waves-effect waves-light btn c_class" id="co2"><i class="material-icons left">person</i>Select</a>
 					
 					</div>
 					
 
 					<div class="col s12 m4 l4 center card" style=" padding-bottom: 8px;">
-						<img src="images/dramita.jpg" style="margin:10px;">
+						<img src="images/dramita.jpg" style="margin:10px;" width="100px" height="120px;">
 						<p><b>Amita Puri<br>Visiting Counselor,<br>PhD (PGI, Chandigarh)</b></p>
 
 						<p><b>Availability:</b>Wednesday and Saturday<br>
@@ -323,10 +403,9 @@
 						   <b>Contact Number:</b><br>+91- 9717458266 <br>
 						   
 						</p>
-						<br>
 
-						<a class="waves-effect waves-light btn modal-trigger" href="#modal3">More Details</a>
-
+<!-- 						<a class="waves-effect waves-light btn modal-trigger" href="#modal3">More Details</a>
+ -->
 					  <div id="modal3" class="modal">
 						<div class="modal-content">
 						  <h5>Amita Puri</h5><h6>Visiting Counselor; PhD (PGI, Chandigarh)</h6>
@@ -336,9 +415,8 @@
 						  Several Book Chapters and 50+ Research Publication's.</p>
 						</div>
 					  </div>
-					  <br><br>
-					  	
-					  <a class="waves-effect waves-light btn c_class" id="co3"><i class="material-icons left">person</i>Select Councelor</a>
+					  <br>
+					  <a class="waves-effect waves-light btn c_class" id="co3"><i class="material-icons left">person</i>Select</a>
 					</div>
 
 					<div>
@@ -350,26 +428,34 @@
 
 				 <div style="padding: 16px;">
 				
-						<div class="row card">
-						<div class="col s12 m6 l6">
-						<p>Selected Councelor : <input readonly required id="selected_c" name="selected_c" placeholder="Select Councelor from above"></input></p>
+					<div class="row card">
+						<div class="col s12 m4 l4">
+						<p>Appointment With : </p><p><span><input style="margin: 0px;display: inline;width: 200px;" required id="selected_c" name="selected_c"></input></span></p>
 
 						</div>
 						
-						<div class="input-field col l6 m6 s12">
-
-						<p>Choose Appointment Date</p>
-
-  							<input type="date" name="date" required id="date" >		
-  						<p>Choose Appointment Time</p>
-  							<input type="text" name="time" required id="time">
-
-  										
+						<div class="input-field">
+						<div class="col s12 m4 l4">
+							<p>Choose Preferable Date</p>
+  							<input type="date" name="date" id="date" required id="date" style="margin: 0px;display: inline;width: 200px;" >	
 						</div>
+						<div class="col s12 m4 l4">
+							<p>Choose Preferable Time</p>
+  							<input type="text" name="time" id="time" required id="time" style="margin: 0px;display: inline;width: 200px;">
+
+						</div>
+							
+  										
 						</div>	
 				</div>
 
-				<button class="center waves-light waves-effect col s12 m2 offset-m5 l2 offset-l5" style="margin:50px;"  type="submit" value="submit">Submit</button>
+				<div class="row">
+					<div class="col s12 m12 offset-m5 l2 offset-l5">
+						<button class="center waves-light waves-effect btn"  type="submit" value="submit">Submit</button>
+
+					</div>
+					
+				</div>
 
 			</form>
 			</div>
@@ -382,17 +468,14 @@
 		
 	</main>
 
-	<footer class="page-footer notprint white" style="opacity: 0.95;border-color: black;border-style: ridge;border-radius: 10px;">
+       <footer class="page-footer notprint  center" style="opacity: 0.95;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #e0f2f1;position:absolute;bottom:0;width: 100%;">
 
-        <div class="footer-copyright white">
-        <div class="container">
-        <b style="color:black"><i>© 2019 &nbsp;| Designed by: Himanshu Sundriyal&nbsp;| &nbsp;Powered by: Web Admin IIIT-D </i></b>
-        
-        </div>
-        </div>
-    </footer>
+    <div class="container">
+    <b style="color:black"><i>Copyright © 2019. IIIT-Delhi <br>
+     Developed and Designed by: Himanshu Sundriyal&nbsp;and Divyanshu Sundriyal &nbsp;&nbsp; &nbsp;Powered by: Web Admin, IIIT-D </i></b>
     
-            
+    </div>
+    </footer>  
 
 
 
@@ -450,16 +533,51 @@
 
         }	
     });
-	
+
+		 $("#switcher_pc").find("input[type=checkbox]").on("change",function() {
+        var status = $(this).prop('checked');
+        alert(status);
+		box = document.getElementById("concerns");
+		var i = status ? 1 : 0;
+		
+		if(i == 1){
+			$("#concerns").prop('disabled', false);
+            }
+            else if(i == 0){
+			$("#concerns").prop('disabled', true);
+			$("#concerns").val("None");
+
+        }	
+    });
+	 
+			 $("#switcher_ac").find("input[type=checkbox]").on("change",function() {
+        var status = $(this).prop('checked');
+        alert(status);
+		box = document.getElementById("maj_concern2");
+		var i = status ? 1 : 0;
+		
+		if(i == 1){
+			$("#maj_concern2").prop('disabled', false);
+            }
+            else if(i == 0){
+			$("#maj_concern2").prop('disabled', true);
+			$("#maj_concern2").val("None");
+
+        }	
+    });
 
 	
 		$(function(){
    $('a.c_class').click(function(){
 		  var c_id =  $(this).attr('id');
+		  	
 			if(c_id == "co1"){
 				$("#selected_c").val("Khushpinder P. Sharma");
 				$('#time').timepicker('remove');
 				$('#time').timepicker();
+				$('#time').val("");
+		  		$('#date').val("");
+
 				// $('#time').timepicker({
 				//     'disableTimeRanges': [
 				//         ['1am', '2am'],
@@ -474,6 +592,8 @@
 				    'minTime': '2:30pm',
 				    'maxTime': '4:00pm',
 				});
+				$('#time').val("");
+		  		$('#date').val("");
 
 			}
 			else{
@@ -483,6 +603,8 @@
 			    'minTime': '2:00pm',
 			    'maxTime': '4:30pm',
 			});
+				$('#time').val("");
+		  		$('#date').val("");
 
 			}
    });
@@ -509,13 +631,81 @@
 
 		var textarea1 = document.getElementById("concerns");
 		var result1   = document.getElementById("result1");
+		var textarea2 = document.getElementById("maj_concern2");
+		var result2   = document.getElementById("result2");
+
+		var textarea3 = document.getElementById("why");
+		var result3   = document.getElementById("result3");
+
+		var textarea4 = document.getElementById("when");
+		var result4   = document.getElementById("result4");
 
 		textarea1.addEventListener("input", function(){
 		  var v = wordCount( this.value );
-		  if(v.words > 99) alert("Word Limit Reached");
-		  result1.innerHTML = (
+		if(v.words > 99)
+		  { 
+		  // Split the string on first 200 words and rejoin on spaces
+	      var trimmed = $(this).val().split(/\s+/, 100).join(" ");
+	      // Add a space at the end to make sure more typing creates new words
+	      $(this).val(trimmed + " ");
+	      alert("Word Limit Reached");
+
+	  	  }
+
+	  	 result1.innerHTML = (
 			  "Words: "+ v.words +
 			  " &nbsp; &nbsp;Words Left: "+ (100 - v.words)
+		  );
+		}, false);
+
+		textarea2.addEventListener("input", function(){
+		  var v = wordCount( this.value );
+		  if(v.words > 99)
+		  { 
+		  // Split the string on first 200 words and rejoin on spaces
+	      var trimmed = $(this).val().split(/\s+/, 100).join(" ");
+	      // Add a space at the end to make sure more typing creates new words
+	      $(this).val(trimmed + " ");
+	      alert("Word Limit Reached");
+
+	  	  }
+		  result2.innerHTML = (
+			  "Words: "+ v.words +
+			  " &nbsp; &nbsp;Words Left: "+ (100 - v.words)
+		  );
+		}, false);
+
+		textarea3.addEventListener("input", function(){
+		  var v = wordCount( this.value );
+		  if(v.words > 99)
+		  { 
+		  // Split the string on first 200 words and rejoin on spaces
+	      var trimmed = $(this).val().split(/\s+/, 100).join(" ");
+	      // Add a space at the end to make sure more typing creates new words
+	      $(this).val(trimmed + " ");
+	      alert("Word Limit Reached");
+
+	  	  }
+		  result3.innerHTML = (
+			  "Words: "+ v.words +
+			  " &nbsp; &nbsp;Words Left: "+ (100 - v.words)
+		  );
+		}, false);
+
+		textarea4.addEventListener("input", function(){
+		  var v = wordCount( this.value );
+		  if(v.words > 9)
+		  { 
+		  // Split the string on first 200 words and rejoin on spaces
+	      var trimmed = $(this).val().split(/\s+/, 10).join(" ");
+	      // Add a space at the end to make sure more typing creates new words
+	      $(this).val(trimmed + " ");
+	      alert("Word Limit Reached");
+
+	  	  }
+		  result4.innerHTML = (
+			  "Words: "+ v.words +
+			  " &nbsp; &nbsp;Words Left: "+ (10 - v.words)
 		  );
 		}, false);
 
@@ -538,7 +728,38 @@
 	</script>
 
  -->
-   
+   	<script type="text/javascript">
+   		 $('a.c_class').click(function() {
+   		 	var c_id =  $(this).attr('id');
+   		 	var name_var = ""
+   		 	if(c_id == "co1"){
+				name_var = "Khushpinder P. Sharma";
+			}
+			else if(c_id == "co2"){
+				name_var = "Akshay Kumar";
+			}
+			else{
+				
+				name_var = "Amita Puri";
+			}
+
+		 $.ajax({
+		  type: "POST",
+		  url: "check_status.php",
+		  data: { name: name_var }
+		}).done(function( msg ) {
+			alert(msg);
+			if(msg.slice(0,-2) == "Appointment already requested. You can send reminder to respective Psychologist. Redirecting you to Main Portal Page ..."){
+				window.open("stu_all_meetings.php","_self");
+
+			}
+			else{
+				// alert(msg.valueOf().length + " " + "NO".length);
+			}
+		});    
+
+		    });
+   	</script>
 
 
 </body>

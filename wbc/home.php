@@ -1,4 +1,4 @@
-<?php 
+i<?php 
     include('database_config.php');
     if(isset($_SESSION["email"]) && isset($_SESSION["type"])){
         $user_email = $_SESSION["email"];
@@ -20,7 +20,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home | IIITD Well-Being Center</title>
+    <title>Home | IIITD Well-Being Cel</title>
     <meta name="description" content="Summer Internship at IIIT Delhi are now open. We are looking for some students/researchers to work with, who can help us with the projects and problems we are currently working on. If you think you are passionate about the kind of work we do and keen on contributing, please have a look at the requirements/positions in the table below.">
     <meta name="keywords" content="Summer Internships,BTech Internships,MTech Internships,Research Internships,Research Projects">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

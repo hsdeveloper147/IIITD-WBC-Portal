@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>IIITD Well-Being Center</title>
+    <title>Well-Being Cell</title>
     <meta name="description" content="Summer Internship at IIIT Delhi are now open. We are looking for some students/researchers to work with, who can help us with the projects and problems we are currently working on. If you think you are passionate about the kind of work we do and keen on contributing, please have a look at the requirements/positions in the table below.">
     <meta name="keywords" content="Summer Internships,BTech Internships,MTech Internships,Research Internships,Research Projects">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,8 +68,12 @@
 </head>
 <body class="bg-dark" style="background: url('hands.jpg') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
 
-
-    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="col-md-4 offset-md-4" style="float: right;">
+            <a  class="alert alert-info" style="color:black;width: 120px;border: 2px solid black;padding: 4px;z-index: 10;margin-top: 20px;position: absolute;
+            right: 30px;"
+             href="admin_login.php">Admin Login</a>
+        </div>
+    <div class="sufee-login d-flex align-content-center flex-wrap" style="clear: both">
         <div class="container">
             <div class="login-content">
                 <div class="login-logo">
@@ -77,15 +81,17 @@
                         <img class="align-content" src="images/logo.png" alt="">
                     </a>
                 </div>
+
                 <div class="login-form">
                     <form>
                         <div class="card bg-flat-color-1 text-light">
                             <div class="card-body">
-                                <div class="h3 m-0">IIITD Well-Being Center</div>
+                                <div class="h3 m-0">Well-Being Cell</div>
                                 <div class="h5 m-0">Appointment Portal</div>
                                 <div class="progress-bar bg-light mt-2 mb-2" role="progressbar" style="width: 20%; height: 5px;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                 <small class="text-light">We welcome all with no bias or hierarchy. Feel confident to discuss &amp; get help.</small>
                             </div>
+
                         </div>
                         <div class="social-login-content">
                             <div class="social-button">
@@ -95,6 +101,12 @@
                         
                         <div class="register-link m-t-15 text-center">
                             <span class="badge Info">CONFIDENTIALITY IS HIGHLY ENSURED</span><br/>
+                        </div>
+
+                        <div >
+                            <br>
+
+                          
                         </div>
                         
                     </form>

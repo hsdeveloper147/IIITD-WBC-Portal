@@ -1,0 +1,5 @@
+.notprint {display: none}
+.body{display: none;}
+.print {display: block;visibility: visible;background-color: red;}
+.material-tooltip{display: none;}
+.hiddendiv{display: none ;}
