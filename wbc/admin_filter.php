@@ -70,7 +70,7 @@ else{
 
 ?> 
 
-<body class="bg-dark" style="background: url('hands.jpg') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
+<body class="bg-dark" style="background: url('images/purple_green.png') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
 	
 	<header class="header col s12 header_row">
       <div class="row">
@@ -96,7 +96,7 @@ else{
             <form name="main_form" action="admin_forms.php"    method="post" class="form-horizontal" enctype="multipart/form-data" >
 
             <input type="hidden" name="act_logout">
-        <button type="submit" style="float:right"> Logout </button>
+        <button  class="waves-effect waves-light btn" type="submit" style="float:right"> Logout </button>
 
 <br>
 <br>
@@ -106,7 +106,7 @@ else{
 <form  action="admin_filter.php"  method="post" class="form-horizontal" enctype="multipart/form-data" >
 
      <input type="hidden" name="filter" value="all">
-    <button type="submit" style="float:left" >Show All Issues</button>
+    <button class="waves-effect waves-light btn"  type="submit" style="float:left" >Show All Issues</button>
 
 </form>
 
@@ -114,7 +114,7 @@ else{
 <form  action="admin_filter.php"  method="post" class="form-horizontal" enctype="multipart/form-data" >
 
      <input type="hidden" name="filter" value="acad">
-    <button  type="submit"  style="float:left;margin-left:10px" > Filter By Academic Issues </button> 
+    <button class="waves-effect waves-light btn"  type="submit"  style="float:left;margin-left:10px" > Filter By Academic Issues </button> 
 
 </form>
 
@@ -123,7 +123,7 @@ else{
 
      <input type="hidden" name="filter" value="personal">
 
-    <button type="submit" style="float:left;margin-left:10px"> Filter By Personal Issues </button>
+    <button class="waves-effect waves-light btn"  type="submit" style="float:left;margin-left:10px"> Filter By Personal Issues </button>
 
 </form>
 
@@ -177,7 +177,7 @@ else{
                 $y=$y+1;
             ?>
 
-                <button style="float:right" type="submit">View  Details</button>
+                <button  style="float:right" type="submit">View  Details</button>
                 </form>
 
 
@@ -243,7 +243,7 @@ else{
                 $y=$y+1;
             ?>
 
-                <button style="float:right" type="submit">View  Details</button>
+                <button class="waves-effect waves-light btn" style="float:right" type="submit">View  Details</button>
                 </form>
 
 
@@ -310,7 +310,7 @@ else{
                 $y=$y+1;
             ?>
 
-                <button style="float:right" type="submit">View  Details</button>
+                <button class="waves-effect waves-light btn" style="float:right" type="submit">View  Details</button>
                 </form>
 
 
@@ -332,7 +332,10 @@ else{
 		
     </div>
 	</main>
-      <footer class="page-footer notprint  center" style="opacity: 0.95;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #e0f2f1;clear: both;position: relative;height: 80px;margin-top: -40px;">
+    <br>
+    <br>
+
+      <footer class="page-footer notprint  center" style="opacity: 1;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #fff;clear: both;position: relative;height: 80px;margin-top: -40px;">
 
     <div class="container">
     <b style="color:black"><i>Copyright © 2019. IIIT-Delhi <br>

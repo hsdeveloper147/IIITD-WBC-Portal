@@ -66,7 +66,7 @@
     </script>
 
 </head>
-<body class="bg-dark" style="background: url('hands.jpg') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
+<body class="bg-dark" style="background: url('images/purple_green.png') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
 
         <div class="col-md-4 offset-md-4" style="float: right;">
             <a  class="alert alert-info" style="color:black;width: 120px;border: 2px solid black;padding: 4px;z-index: 10;margin-top: 20px;position: absolute;
@@ -76,7 +76,7 @@
     <div class="sufee-login d-flex align-content-center flex-wrap" style="clear: both">
         <div class="container">
             <div class="login-content">
-                <div class="login-logo">
+                <div style="background-color:white" class="login-logo">
                     <a href="index.php">
                         <img class="align-content" src="images/logo.png" alt="">
                     </a>

@@ -32,7 +32,7 @@ $pass = '';
 
         $sql = "UPDATE wbc2018 SET done='True' WHERE cid='$cid' AND counsellor='$counsellor' AND date='$date' AND time='$time' ";
 
-        echo $sql;
+        // echo $sql;
 
         $conn = new mysqli($host, $user, $pass, $database);
 
@@ -44,8 +44,6 @@ $pass = '';
 
         // Get data
 
-        
-        
     $conn = new mysqli($host, $user, $pass, $database);
     // Check connection
     if ($conn->connect_error) {
@@ -53,37 +51,27 @@ $pass = '';
     }
     else{
 
-
-         
-                $sql = "
+            $sql = "
             SELECT * FROM wbc2018 WHERE counsellor='".$_SESSION["admin"][2]."'  AND done='False'";
 
             $sql2 = "
             SELECT * FROM wbc2018 WHERE counsellor='".$_SESSION["admin"][2]."'  AND done='True'";
 
-            echo $sql;
-
-            
-
+            // echo $sql;
 
             $result=$conn->query($sql);
 
             if($result->num_rows>0){
 
-
                 $row=mysqli_fetch_all($result);
                 // print($row[0][2]);
                 // exit();
-
                 $_SESSION["clients_new"]=$row;
             }
             else{
                 $_SESSION["clients_new"]="null";
 
             }
-
-
-            
 
             $result=$conn->query($sql2);
 
@@ -135,7 +123,7 @@ $pass = '';
         $sql = "
         SELECT * FROM wbc_admins WHERE username='$username' AND password='$password' ";
 
-        echo $sql;
+        // echo $sql;
         //exit();
         
         $result=$conn->query($sql);
@@ -154,7 +142,7 @@ $pass = '';
                 $sql2 = "
                 SELECT * FROM wbc2018 WHERE done='True'";
 
-                echo $sql2;
+                // echo $sql2;
 
 
 
@@ -166,7 +154,7 @@ $pass = '';
             $sql2 = "
             SELECT * FROM wbc2018 WHERE counsellor='".$_SESSION["admin"][2]."'  AND done='True'";
 
-            echo $sql;
+            // echo $sql;
 
             }
 
@@ -190,7 +178,7 @@ $pass = '';
 
           
 
-            echo $sql2;
+            // echo $sql2;
 
             $result=$conn->query($sql2);
 
@@ -213,6 +201,11 @@ $pass = '';
 
             }
             
+            else{
+
+                $login_error="true";
+                
+            }
            
 
         }

@@ -51,38 +51,13 @@
 
 </head>
 
-<?php
-	require 'welcome_forms.php';
+<?php 
 
-   $handle = fopen("sample_student_data.csv", "r");
-   
-   $row = 1;
-   $data_all = array();
-   $emails = array();
+ session_start();
 
-   while (($data = fgetcsv($handle)) !== FALSE) {
-        array_push($data_all,$data);
-		array_push($emails,$data[0]);
-   }
+    
 
-   //print_r($data_all);
-   //print_r($emails);
-   fclose($handle);
-
-   $len_data = sizeof($emails);
-   $given_email = "hsdev@iiitd";
-   $index = 0;
-   for ($x = 0; $x <= $len_data -1; $x++) {
-		if($emails[$x] == $given_email){
-			#echo $emails[$x];
-			$index = $x;
-			break;
-		}
-	}
-	
-	//print_r($data_all[$index]);
-
-?> 
+?>
 
 <body class="bg-dark" style="background: url('images/purple_green.png') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
 	
@@ -99,17 +74,27 @@
       </div>
 
 	 </header>
-	 <div class="row">
-			<div class="col s12 card center" style="background-color: white; opacity: 0.8;margin: auto;margin-bottom: 10px;">
-			<h5>CONFIDENTIALITY IS HIGHLY ENSURED *</h5>
-		</div>
-	</div>
-
+	
 	<main>
 		<div class="container form_row center">
 
-				<h6>Your request for appointment has been successfully registered.</h6>
-			
+			<h5> Book A Walk-In Appointment</h5>
+			<hr>
+			<br>
+			<br>
+<form  action="walk_in_forms.php"  method="post" class="form-horizontal" enctype="multipart/form-data" >
+
+			<span> Enter Email of Client</span>
+
+			<input type="text" name="walk_email">
+<br>
+			 <button class="waves-effect waves-light btn" type="submit" style="float:left;margin-left:10px" >Submit</button>
+
+<br>
+<br>
+<br>
+</form>
+
 		</div>
 		
 	</main>

@@ -39,6 +39,9 @@
 		.dropdown-content li > span {
            font-size: 10px;
         }
+        .purple{
+            color: #800080;
+        }
 	</style>
 
 </head>
@@ -57,12 +60,11 @@
 
 ?> 
 
-<body class="bg-dark" style="background: url('hands.jpg') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
+<body class="bg-dark" style="background: url('images/purple_green.png') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
 	
-	<header class="header col s12 header_row">
+	<header  class="header col s12 header_row">
       <div class="row">
-	  
-
+	1
       <div style="max-width:75%!important;height: 10vh" class="center hide-on-small-only">
             <div id="site-logo">
               <a href=""title="Home"><img src="https://www.iiitd.ac.in/sites/all/themes/impact_theme/logo.png" alt="Home"></a>
@@ -80,32 +82,40 @@
 	<main>
 
 
-		<div class="container form_row">
+		<div class="container form_row" style="padding:20px">
             <form name="main_form" action="admin_forms.php"    method="post" class="form-horizontal" enctype="multipart/form-data" >
 
             <input type="hidden" name="act_logout">
-        <button type="submit" style="float:right"> Logout </button>
+        <button class="waves-effect waves-light btn" type="submit" style="float:right"> Logout </button>
 
     </form>
 
         <br>
 
-        <h5 style="text-align:center">Welcome <?php echo $_SESSION["admin"][2] ?></h5>
+        <h5 style="color:#800080;text-align:center">Welcome <?php echo $_SESSION["admin"][2] ?></h5>
 			
         <hr>
 
 <form name="main_form" action="admin_filter.php"    method="post" class="form-horizontal" enctype="multipart/form-data" >  
 
     <input type="hidden" value="all" name="filter">      
-    <button type="submit">Filter Past Appointments</button>
+    <button class="waves-effect waves-light btn" style="float:left" type="submit">Filter Past Appointments</button>
 
 </form>
 
-<hr>
+<!-- <form  action="Walk_in.php"  method="post" class="form-horizontal" enctype="multipart/form-data" >
+
+     <input type="hidden" name="filter" value="all">
+    <button class="waves-effect waves-light btn" type="submit" style="float:left;margin-left:10px" >Book A Walk-In Appointment</button>
+
+</form> -->
+
+<br>
+<br>
         <br>
         <?php 
         
-        echo "<h6 style='text-align:center'>Current Appointments</h6><br>";
+        echo "<h6 style='text-align:center'><b>Current Appointments</b></h6><br>";
 
 
         if($_SESSION["clients_new"]=="null"){
@@ -148,7 +158,7 @@
             ?>           
            </span>&nbsp &nbsp &nbsp &nbsp &nbsp
 
-                <button style="float:right" type="submit">View  Details</button>
+                <button  style="float:right" type="submit">View  Details</button>
                 </form>
 
 
@@ -159,7 +169,7 @@
                 <input type="hidden" name="act_done">
                 <input type="hidden" name="id" value="<?php echo $x ?>">
 
-                <button  type="submit">Session Done</button>
+                <button   type="submit">Session Done</button>
 
                 </form>
                 </div>
@@ -179,7 +189,7 @@
 
 
         
-        echo "<br><hr><br><h6 style='text-align:center'>Past Appointments</h6><br>";
+        echo "<br><hr><br><h6 style='text-align:center'><b>Past Appointments</b></h6><br>";
 
         if($_SESSION["clients_past"]=="null"){
 
@@ -231,7 +241,7 @@
                 $y=$y+1;
             ?>
 
-                <button style="float:right" type="submit">View  Details</button>
+                <button  style="float:right" type="submit">View  Details</button>
                 </form>
 
 
@@ -251,7 +261,10 @@
 		
     </div>
 	</main>
-      <footer class="page-footer notprint  center" style="opacity: 0.95;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #e0f2f1;clear: both;position: relative;height: 80px;margin-top: -40px;">
+    <br>
+    <br>
+    <br>
+      <footer class="page-footer notprint  center" style="opacity:1;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #fff;clear: both;position: relative;height: 80px;margin-top: -40px;">
 
     <div class="container">
     <b style="color:black"><i>Copyright © 2019. IIIT-Delhi <br>

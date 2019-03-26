@@ -46,14 +46,17 @@
 <?php
 
 	session_start();
+	$login_error="false";
+
     require 'admin_forms.php';
-    
+
+
 
 
 ?> 
 
-<body class="bg-dark" style="background: url('hands.jpg') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
-	
+<body class="bg-dark" style="background: url('images/purple_green.png') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
+		
 	<header class="header col s12 header_row">
       <div class="row">
 	  
@@ -83,6 +86,17 @@
 
 				<label>Password : </label>	<input name="password" id="password" type="password" placeholder="password">
 				</div>
+
+				<?php 
+
+				if($login_error=="true"){
+
+					echo "<span style='color:red'>Invalid username or password</span>";
+
+				}
+
+				?>
+
                 
                            
 
@@ -98,7 +112,7 @@
 
 
 
-      <footer class="page-footer notprint  center" style="opacity: 0.95;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #e0f2f1;position:absolute;bottom:0;width: 100%;">
+      <footer class="page-footer notprint  center" style="opacity: 1;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #fff;position:absolute;bottom:0;width: 100%;">
 
     <div class="container">
     <b style="color:black"><i>Copyright © 2019. IIIT-Delhi <br>

@@ -52,9 +52,9 @@
 
 ?> 
 
-<body class="bg-dark" style="background: url('hands.jpg') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
+<body class="bg-dark" style="background: url('images/purple_green.png') no-repeat center center fixed; background-size: 100% 100%; height: 100%;">
 	
-	<header class="header col s12 header_row">
+	<header  class="header col s12 header_row">
       <div class="row">
 	  
 
@@ -197,14 +197,16 @@
                
 		
     </div>
-    <div class="container form_row"  style="background-color: #e0f2f1">
+    <div class=" container form_row"  style="background-color: #e0f2f1">
         <h6 class="center">Important Note</h6>
         <h7 class="center">Once requested a Psychologist for an appointment, you can send reminder using "Send Reminder" button.</h7>  
     </div>
 	</main>
+<br>
+<br>
+<br>
 
-
-      <footer class="page-footer notprint  center" style="opacity: 0.95;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #e0f2f1;position:absolute;bottom:0;width: 100%;">
+      <footer class="page-footer notprint  center" style="opacity: 1;border-color: black;border-style: ridge;border-radius: 10px;margin-top: 20px;background-color: #fff;width: 100%;">
 
     <div class="container">
     <b style="color:black"><i>Copyright © 2019. IIIT-Delhi <br>
