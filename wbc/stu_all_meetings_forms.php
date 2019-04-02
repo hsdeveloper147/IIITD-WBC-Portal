@@ -1,12 +1,13 @@
 <?php
 
-$database = 'wbc';
-$host = 'localhost';
-$user = 'root';
-$pass = '';
+// $database = 'wbc';
+// $host = 'localhost';
+// $user = 'root';
+// $pass = '';
 
+include 'database_config.php';
 
-$given_email = "hsdev@iiitd";
+$given_email = "xyz@iiitd.ac.in";
 
 
  $conn = new mysqli($host, $user, $pass, $database);
@@ -21,7 +22,6 @@ $given_email = "hsdev@iiitd";
          $sql = "SELECT * FROM wbc_ids WHERE email='$given_email'";
 
         // echo $sql;
-
         $result=$conn->query($sql);
 
         if($result->num_rows>0){
@@ -120,7 +120,7 @@ $given_email = "hsdev@iiitd";
 
 $conn = new mysqli($host, $user, $pass, $database);
 
-$email="hsdev@iiitd";
+$email=$given_email;
 
 // Check connection
 if ($conn->connect_error) {

@@ -1,9 +1,11 @@
 <?php
 
-$database = 'wbc';
-$host = 'localhost';
-$user = 'root';
-$pass = '';
+// $database = 'wbc';
+// $host = 'localhost';
+// $user = 'root';
+// $pass = '';
+
+include 'database_config.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -273,12 +273,13 @@
 				</div>
 				</div>
 				<div class="row">
+
                     <div class="input-field col l8 offset-l2 s12 ">
-                    <h5 class="center" style="color:#800080;">Personal Concerns To Be Discussed </h5>
+					<h5 class="center" style="color:#800080;">Concerns To Be Discussed </h5>
 
                     <div class="input-field col s12 l6 m6" style="font-size:14px;">
 
-					<p><b><span>Want to enter Personal Concerns ?</b><span>
+					<p><b><span style="color:#800080;">Personal Concerns</b><span>
 					<!--select class="dropdown-content" required onchange="change(this);">
 					  <option value="" disabled selected>Choose Option</option>
 					  <option value="Yes">Yes</option>
@@ -305,9 +306,8 @@
                  <div class="row">
                     <div class="input-field col l8 offset-l2 s12 ">
 
-					  <h5 class="center" style="color:#800080;">Academic Concerns To Be Discussed </h5>
 					 <div class="input-field col s12 l6 m6" style="font-size:14px;">
-					<p><b><span>Want to enter Academic Concerns ?</b><span>
+					<p><b><span style="color:#800080;">Academic Concerns</b><span>
 					<!--select class="dropdown-content" required onchange="change(this);">
 					  <option value="" disabled selected>Choose Option</option>
 					  <option value="Yes">Yes</option>
@@ -386,6 +386,7 @@
 						  Hospital and Artemis Hospital.<br><br>Franchise owner of "Men are from Mars Women are from Venus" Asia pacific region.</p>
 						</div>
 					  </div>
+					  <br>
 
 						<a class="waves-effect waves-light btn c_class" id="co2"><i class="material-icons left">person</i>Select</a>
 					
@@ -536,7 +537,6 @@
 
 		 $("#switcher_pc").find("input[type=checkbox]").on("change",function() {
         var status = $(this).prop('checked');
-        alert(status);
 		box = document.getElementById("concerns");
 		var i = status ? 1 : 0;
 		
@@ -552,7 +552,6 @@
 	 
 			 $("#switcher_ac").find("input[type=checkbox]").on("change",function() {
         var status = $(this).prop('checked');
-        alert(status);
 		box = document.getElementById("maj_concern2");
 		var i = status ? 1 : 0;
 		
@@ -714,7 +713,6 @@
 	
 	<!-- <script>
 			$(document).ready(function(){
-				alert("ajaja");
 				var date_input=$('input[type="date"]'); //our date input has the name "date"
 				var container= '#basic';
 				var options={
@@ -731,6 +729,7 @@
    	<script type="text/javascript">
    		 $('a.c_class').click(function() {
    		 	var c_id =  $(this).attr('id');
+   		 	var email = $("#email").val();
    		 	var name_var = ""
    		 	if(c_id == "co1"){
 				name_var = "Khushpinder P. Sharma";
@@ -746,7 +745,7 @@
 		 $.ajax({
 		  type: "POST",
 		  url: "check_status.php",
-		  data: { name: name_var }
+		  data: { name: name_var, email: email}
 		}).done(function( msg ) {
 			alert(msg);
 			if(msg.slice(0,-2) == "Appointment already requested. You can send reminder to respective Psychologist. Redirecting you to Main Portal Page ..."){

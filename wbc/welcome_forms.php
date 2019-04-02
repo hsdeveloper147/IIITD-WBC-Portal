@@ -2,11 +2,12 @@
 $table_name="wbc2018";
 
 
-$database = 'wbc';
-$host = 'localhost';
-$user = 'root';
-$pass = '';
+// $database = 'wbc';
+// $host = 'localhost';
+// $user = 'root';
+// $pass = '';
 
+include 'database_config.php';
 
 //  POST METHODS
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

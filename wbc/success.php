@@ -109,8 +109,15 @@
 		<div class="container form_row center">
 
 				<h6>Your request for appointment has been successfully registered.</h6>
+
+
 			
 		</div>
+				<br>
+				<a href="stu_all_meetings.php" style="margin-left:auto;margin-right:auto;position: relative;left: 45%" class="col s4 offset-s4center waves-light waves-effect btn">Go to Portal Page</a>
+
+
+
 		
 	</main>
 
@@ -120,7 +127,7 @@
 
 
     <script type="text/javascript" src="assets/js/materialize.js"></script>
-         <script type="text/javascript" src="assets/js/jquery.timepicker.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.timepicker.js"></script>
 
 	
 

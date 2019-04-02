@@ -140,66 +140,83 @@ hr.style-eight:after {
     
 ?> 
 
-    <header style="max-width:100%!important;height: 80px"  class="header col s12 header_row black">
+   <header style="max-width:100%!important;height: 80px;background-color: #b2dfdb"  class="header col s12 header_row">
       <div class="row">
-
+      
             <div>
               <a href=""title="Home"><img src="images/logo2.png" height="100px" width="100px" style="margin-left:100px" alt="Home"></a>
               <!-- <img src="images/logo.png" alt="Home"  height="100px" width="100px" class="center_img"> -->
-            
-                            <div class="card" style="float: right;margin-right: 24px;margin-top: 0px; padding: 4px;height: 80px">
-                                <div class="h3 m-0">Well-Being Center</div>
-                                <div class="h5 m-0">Appointment Portal</div>
-                                <div class="progress-bar bg-light mt-2 mb-2" role="progressbar" style="width: 20%; height: 5px;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                <small class="text-light">We welcome all with no bias or hierarchy. Feel confident to discuss &amp; get help.</small>
-                            </div>
+              <h4 style="float: right;margin-right: 100px;margin-top: 20px;color: #004d40">Well-being Cell</h4>
             </div>
 
    </div>
 
-     </header>
+    </header>
          <button class="notprint" style="float:right; margin-right:10px" onclick="myFunction()"><img src="images/print.ico" height="20px" width="20px"></button>
 
 
-      <main style="margin-left: 20px; ">
-            <div class="row" style="margin-left: 24px;margin-right: 24px;;">
-                <div class="col s4 m4 l4" style="height: 100%;border-right: 4px groove black">
-                    <div class="title1"><b>Meeting Details</b></div>
-
-            
-
-                    <span><b>Client ID</b> - <?php echo $client[0]."      "  ?></span>&nbsp &nbsp &nbsp &nbsp &nbsp
-                    <br>
-
-                    <span><b>Counsellor</b> - <?php echo $client[17]."      "  ?></span>&nbsp &nbsp &nbsp &nbsp &nbsp
-
-                    <br>
-                    <span><b>Date</b> - <?php echo $client[18]."      "  ?></span>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-
-                    <span><b>Time</b> - <?php echo $client[19]."      "  ?></span>&nbsp &nbsp &nbsp &nbsp &nbsp
-                    <br>
-                    <hr>
-                    <div class="title1"><b>Student Details</b></div>
-
+      <main  style="margin-left: 32px;">
+        <div class="container">
+             <div class="row" style="margin: 0px">
+                    
+                <div class="col s4">
                     <p style="width: 100%;margin: 0px"><b>Roll Number : </b><?php echo $client[1] ?></p>
+
+                </div>
+                <div class="col s4">
                     <p style="width: 100%;margin: 0px"><b>Name : </b><?php echo $client[2] ?></p>
+
+                </div>
+            
+                <div class="col s4">
+                    <p style="width: 100%;margin: 0px"><b>Client ID : </b><?php echo $client[0] ?></p>
+
+                </div>
+            
+             </div> 
+                <div class="row" style="margin: 0px">                    
+                <div class="col s4">
                     <p style="width: 100%;margin: 0px"><b>Age : </b><?php echo $client[3] ?></p>
+
+                </div>
+                <div class="col s4">
                     <p style="width: 100%;margin: 0px"><b>Gender : </b><?php echo $client[4] ?></p>
-                    <p style="width: 100%;margin: 0px"><b>Program : </b><?php echo $client[5] ?></p>
-                    <p style="width: 100%;margin: 0px"><b>Branch : </b><?php echo $client[6] ?></p>
+
+                </div>
+                <div class="col s4">
+                    <p style="width: 100%;margin: 0px"><b>Program : </b><?php echo $client[5]."(".$client[6].")"?></p>
+
+                </div>
+            
+             </div> 
+                <div class="row" style="margin: 0px">
+
+                <div class="col s4">
                     <p style="width: 100%;margin: 0px"><b>Semester : </b><?php echo $client[7] ?></p>
-                    <p style="width: 100%;margin: 0px"><b>Email: </b><?php echo $client[8] ?></p>
+
+                </div>
+                <div class="col s4">
                     <p style="width: 100%;margin: 0px"><b>Contact : </b><?php echo $client[10] ?></p>
 
-            <div class="notprint">
+                </div>                
+                <div class="col s4">
+                    <p style="width: 100%;margin: 0px"><b>Email: </b><?php echo $client[8] ?></p>
+
+                </div>
+
+            
+             </div>  
+             <div class="row notprint" style="margin: 0px">
+            <div class="col s4">
                 <p style="width: 100%;margin: 0px"><b>Alternate Email : </b>
                 <br><input type="text" style="width: 70%" id="ae" name="" value="<?php echo  $_SESSION["current_stu"][9]  ?>" disabled>
                 <a class="hoverable tooltipped edit" data-position="left" data-tooltip="Edit" id="eo1"><img src="images/edit_icon.PNG" width="15px" height="15px"></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <a class="hoverable tooltipped save" data-position="right" data-tooltip="Save" id="so1"><img src="images/save-icon.PNG" width="15px" height="15px"></a>
 
-                </p>
-
+                </p>     
+            </div>
+            <div class="col s4">
                 <p style="width: 100%;margin: 0px"><b>Alternate Contact : </b>
                 <br><input type="text" style="width: 70%" id="ac" name="" value="<?php echo  $_SESSION["current_stu"][11]  ?>" disabled>
                 <a class="hoverable tooltipped edit" data-position="left" data-tooltip="Edit" id="eo2"><img src="images/edit_icon.PNG" width="15px" height="15px"></a>
@@ -207,7 +224,9 @@ hr.style-eight:after {
                 <a class="hoverable tooltipped save" data-position="right" data-tooltip="Save" id="so2"><img src="images/save-icon.PNG" width="15px" height="15px"></a>
 
                 </p>
-
+                
+            </div>
+            <div class="col s4">
                 <p style="width: 100%;margin: 0px"><b>Hosteller/Day-Scholar : </b>
                 <br><input type="text" style="width: 70%" id="ah" name="" value="<?php echo  $_SESSION["current_stu"][12]  ?>" disabled>
                 <a class="hoverable tooltipped edit" data-position="left" data-tooltip="Edit" id="eo3"><img src="images/edit_icon.PNG" width="15px" height="15px"></a>
@@ -215,107 +234,111 @@ hr.style-eight:after {
                 <a class="hoverable tooltipped save" data-position="right" data-tooltip="Save" id="so3"><img src="images/save-icon.PNG" width="15px" height="15px"></a>
 
                 </p>
+                
             </div>
+            
+            </div>
+                <div class="row" id="printOnly" style="margin: 0px">
 
-            <div id="printOnly">
-                <p style="width: 100%;margin: 0px"><b>Alternate Email : </b><?php echo $_SESSION["current_stu"][9] ?></p>
-                <p style="width: 100%;margin: 0px"><b>Alternate Contact: </b><?php echo $_SESSION["current_stu"][11] ?></p>
-                <p style="width: 100%;margin: 0px"><b>Hosteller/ Day-Scholar : </b><?php echo $_SESSION["current_stu"][12] ?></p>
-                
-            </div>
-    
+                <div class="col s4">
+                    <p style="width: 100%;margin: 0px"><b>Alternate Email : </b><span id="ae_id"><?php echo $client[9] ?></span></p>
+
                 </div>
-                <div class="col s8 m8 l8" style="height: 100%">
-                
-                <div style="border:2px solid black;border-radius: 1%;padding: 8px; height: 150px;">
-                    <p style="font-size: 13px;"><b>Had student ever been to a Psychiatrist/Psychologist : </b>
+                <div class="col s4">
+                    <p style="width: 100%;margin: 0px" id="ac_id"><b>Alternate Contact : </b><span><?php echo $client[11] ?></span></p>
+
+                </div>                
+                <div class="col s4">
+                    <p style="width: 100%;margin: 0px" id="at_id"><b>Accomodation : </b><span><?php echo $client[12] ?></span></p>
+
+                </div>
+
+            
+             </div>  
+            <br>
+            <hr>
+            <div class="row">
+
+                <div class="col s6">
+                    <p style="width: 100%;margin: 0px"><b>Psychologist : </b><?php echo $client[17] ?></p>
+
+                </div>
+                <div class="col s3">
+                    <p style="width: 100%;margin: 0px"><b>Date : </b><?php echo $client[18] ?></p>
+
+                </div>                
+                <div class="col s3">
+                    <p style="width: 100%;margin: 0px"><b>Time: </b><?php echo $client[19] ?></p>
+
+                </div>
+
+            
+             </div>  
+           
+        <hr>
+        <div style="height: auto;">
+                    <p style="font-size: 15px;"><h7><b>Had student ever been to a Psychiatrist/Psychologist : </b>
                         <?php 
-                        if($client[13]!="none" or $client[14]!="none" or $client[15]!="none"){
-                            echo "Yes";
+                        if($client[13]!="" or $client[14]!="" or $client[15]!=""){
+                            echo "Yes</h7>";
                             echo "<br><b>When : </b>" .$client[13];
-                            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</t><b>Number of Sessions : </b>" .$client[15];
                             echo "<br><b>Why : </b>" .$client[14];
+                            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                            <b>Number of Sessions : </b>" .$client[15];
                         }
                         else{
-                            echo "No";
+                            echo "No</h7>";
 
                         } 
 
                         ?>
                     
                     </p>
-                </div>
-                <div style="height: 120px;padding: 16px">
-                    <span class="title"><b style="font-size: 14px;">Personal Concerns To Be Discussed : </b></span>
-                    <br>
-                    
-                    <i style="padding: 16px;font-size: 13px;">
-                    <?php echo $client[16] ?></i>
+        </div>
+        <hr>
+        <h7><b>Concerns To Be Discussed : </b></h7>
+        <div style="height:auto;padding: 4px">
+            <span class="title"><b style="font-size: 15px;">Personal : </b></span>
+            <br>
+            
+            <i style="padding: 4px;font-size: 15px;">
+            <?php if($client[16] == "") echo "None"; else echo $client[16]; ?></i>
 
-                    
-                </div> 
+            
+        </div> 
+        <div style="height:auto;padding: 4px;">
+            <span class="title" style="font-size: 15px;"><b>Academic : </b></span>
+            <br>
+            
+            <i style="padding: 4px;font-size: 15px;">
+            <?php if($client[21] == "") echo "None"; else echo $client[21]; ?></i>
+
+        </div> 
+
+      <div class="col l6 m6">
+            <hr>
+
+                <div class="title">Current Coping Strategies</div>
+
+                <textarea class="box" style="visibility: hidden;" id="text-box-3"  cols="50">
+                </textarea>
                 <br>
-                <div style="height: 120px;padding: 16px;">
-                    <span class="title" style="font-size: 14px;"><b>Academic Concerns To Be Discussed : </b></span>
-                    <br>
-                    
-                    <i style="padding: 16px;font-size: 13px;">
-                    <?php echo $client[21]  ?></i>
-
-                </div> 
-                <br><br>
-
-                
-                
-
- 
-                </div>
-
-            </div>
-                <hr class="style-eight">
-
-                 <div class="row" style="margin: 0px;">
-                    <div  class="col s6 l6 m6"  style="border-right: 2px solid black">
-                        <div class="title">Main Problems</div>
-
-                        <textarea  class="box" style="visibility: hidden;" id="text-box-1" rows="100" cols="50">
-                        </textarea>
-                        
-                    </div>
-                    <div  class="col s6 l6 m6">
-                           <div class="title">Triggers</div>
-                    <textarea class="box" style="visibility: hidden;" id="text-box-2" rows="100" cols="50">
-                    </textarea>
-                    <br>
-                     <br>
-                    <br>
+                <br>
 
 
-                        
-                    </div>
-                      
-                </div>
-                 <div class="col l6 m6">
-                    <hr>
+               
+        </div>
+        
+       <hr> 
+       <div class="title">Session Notes</div>
 
-                        <div class="title">Current Coping Strategies</div>
+            <textarea class="box" style="visibility: hidden;" id="text-box-4"  cols="50">
+            </textarea>
 
-                        <textarea class="box" style="visibility: hidden;" id="text-box-3" rows="100" cols="50">
-                        </textarea>
-                        <br>
-                        <br>
-   
+    </div>
 
-                       
-                </div>
-                
-               <hr> 
-               <div class="title">Session Notes</div>
-
-                        <textarea class="box" style="visibility: hidden;" id="text-box-4" rows="100" cols="50">
-                        </textarea>
       </main>
-
+      
 
     
   
@@ -330,13 +353,13 @@ function myFunction() {
 <script>
 
 
-document.getElementById('text-box-1').style.height="50px";
+// document.getElementById('text-box-1').style.height="auto";
 
-document.getElementById('text-box-2').style.height="5px";
+// document.getElementById('text-box-2').style.height="auto";
 
-document.getElementById('text-box-3').style.height="50px";
+document.getElementById('text-box-3').style.height="auto";
 
-document.getElementById('text-box-4').style.height="100px";
+document.getElementById('text-box-4').style.height="auto";
 
 
   $(document).ready(function(){
@@ -371,9 +394,17 @@ document.getElementById('text-box-4').style.height="100px";
               url: "save_alt_details.php",
               data: { id: stu_id, alt_email : alt_email, alt_contact : alt_contact, resi : resi, change : change}
             }).done(function( msg ) {
-
-
-                alert(msg);
+                if(msg[0] == "1"){
+                    alert("Alternate Email updated successfully");
+                    $('#ae_id').text(alt_email);
+                   
+                }
+                else if(msg[0] == "2"){
+                    alert("Alternate contact updated successfully");
+                }
+                else if(msg[0] == "3"){
+                    alert("Accomodation Type updated successfully");
+                }
 
 
             });    

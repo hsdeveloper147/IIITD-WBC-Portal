@@ -1,19 +1,24 @@
 <?php  
-
-$name = "";
-if( $_REQUEST["name"] ) {
-
-   $name = $_REQUEST['name'];
-   // echo "Welcome ". $name;
-}
+// include 'database_config.php';
 
 $database = 'wbc';
 $host = 'localhost';
 $user = 'root';
 $pass = '';
 
+$name = "";
+if( $_REQUEST["name"] ) {
 
-$given_email = "hsdev@iiitd";
+   $name = $_REQUEST['name'];
+   $given_email = $_REQUEST['email'];
+   // echo "Welcome ". $name;
+}
+
+
+
+
+// $given_email = "xyz@iiitd.ac.in";
+
 
 
  $conn = new mysqli($host, $user, $pass, $database);

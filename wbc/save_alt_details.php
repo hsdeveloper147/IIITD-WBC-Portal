@@ -1,6 +1,8 @@
 <?php  
 
-session_start();
+if (session_status()==1) {
+    session_start(); 
+}
 $name = "";
 if( $_REQUEST["id"] ) {
 
@@ -36,12 +38,18 @@ if($change == 1)
         // echo $sql;
         // echo $id;
         if ($conn->query($sql) === TRUE) {
-            echo "ALternate Email updated successfully";
+            // echo "Alternate Email updated successfully";
             $_SESSION["current_stu"][9] = $alt_e;
-            echo $alt_e;
+            // echo $alt_e;
+            echo "1";
+
             $_SESSION['n_alt_e'] = $alt_e;
             $client = $_SESSION["current_stu"];
+            if(isset($$_SESSION["current_stu"])){
+                $_SESSION["current_stu"][9] = $alt_e;
+                $client = $_SESSION["current_stu"];
 
+            }
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -65,7 +73,8 @@ else if($change == 2)
         // echo $sql;
         // echo $id;
         if ($conn->query($sql) === TRUE) {
-            echo "Alternate contact updated successfully";
+            // echo "Alternate contact updated successfully";
+            echo "2";
             $_SESSION["current_stu"][11] = $alt_c;
             $client = $_SESSION["current_stu"];
 
@@ -92,7 +101,8 @@ else{
         // echo $sql;
         // echo $id;
         if ($conn->query($sql) === TRUE) {
-            echo "Accomdoation type updated successfully";
+            // echo "Accomdoation type updated successfully";
+            echo "3";
             $_SESSION["current_stu"][12] = $res;
             $client = $_SESSION["current_stu"];
 

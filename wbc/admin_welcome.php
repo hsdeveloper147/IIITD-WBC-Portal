@@ -141,7 +141,7 @@
             <span><b>Date</b> - <?php echo $client[18]."      "  ?></span>&nbsp &nbsp &nbsp &nbsp &nbsp
             <span><b>Time</b> - <?php echo $client[19]."      "  ?></span>&nbsp &nbsp &nbsp &nbsp &nbsp
             <br>
-            <span><b>Personal Concerns shared by client</b> - 
+           <!--  <span><b>Personal Concerns shared by client</b> - 
             <?php
                 if($client[16] == "None" OR $client[16] == ""){
                     echo "No";
@@ -156,7 +156,7 @@
                 }
                 else echo "Yes";
             ?>           
-           </span>&nbsp &nbsp &nbsp &nbsp &nbsp
+           </span>&nbsp &nbsp &nbsp &nbsp &nbsp -->
 
                 <button  style="float:right" type="submit">View  Details</button>
                 </form>
@@ -220,7 +220,7 @@
             <span><b>Date</b> - <?php echo $client[18]."      "  ?></span>&nbsp &nbsp &nbsp &nbsp &nbsp
             <span><b>Time</b> - <?php echo $client[19]."      "  ?></span>&nbsp &nbsp &nbsp &nbsp &nbsp
             <br>
-            <span><b>Personal Concerns shared by client</b> - 
+            <!-- <span><b>Personal Concerns shared by client</b> - 
             <?php
                 if($client[16] == "None" OR $client[16] == ""){
                     echo "No";
@@ -236,7 +236,7 @@
                 else echo "Yes";
             ?>           
            </span>&nbsp &nbsp &nbsp &nbsp &nbsp
-            
+             -->
             <?php
                 $y=$y+1;
             ?>

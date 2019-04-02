@@ -4,10 +4,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
 
-$database = 'wbc';
-$host = 'localhost';
-$user = 'root';
-$pass = '';
+// $database = 'wbc';
+// $host = 'localhost';
+// $user = 'root';
+// $pass = '';
+
+include 'database_config.php';
 
     if(isset($_POST["act_logout"])){
 
